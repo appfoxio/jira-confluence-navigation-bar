@@ -1,4 +1,15 @@
-## Navigation Bar App for Jira, Confluence, Bitbucket, Fisheye, Crucible and Crowd
+## Navigation Bar App for Atlassian Apps
+
+This App adds a full-width banner to all pages in Atlassian Apps providing easy access to other Apps and Websites that have been linked to the App.
+
+Supports:
+
+* Jira
+* Confluence
+* Bitbucket Server
+* Fisheye/Crucible
+* Bamboo
+* Crowd
 
 Here are some SDK commands you can use:
 
