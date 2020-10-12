@@ -1,6 +1,6 @@
 ## Navigation Bar App for Atlassian Apps
 
-This App adds a full-width banner to all pages in Atlassian Apps providing easy access to other Apps and Websites that have been linked to the App.
+An Open Source full-width banner for Atlassian Apps, providing easy access to other Apps and Websites.
 
 Supports:
 
