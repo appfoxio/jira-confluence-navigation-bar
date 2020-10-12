@@ -1,0 +1,15 @@
+#navbar-banner > ul > li > a {
+    margin-top: -5px;
+    padding-bottom: 8px;
+    white-space: nowrap;
+}
+
+
+#navbar-banner > ul > li {
+    font-size: 12px;
+}
+
+#navbar-banner {
+    height: 32px;
+    border-bottom-color: black;
+}
