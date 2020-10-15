@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Atlassian SDK
-        uses: rodrigo-nogues/github-action-install-atlassian-sdk
+        uses: rodrigo-nogues/github-action-install-atlassian-sdk@v1
       - name: Package the App
         run: |
           atlas-package
