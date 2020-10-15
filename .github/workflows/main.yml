@@ -13,7 +13,7 @@ jobs:
         uses: rodrigo-nogues/github-action-install-atlassian-sdk@v1
       - name: Package the App
         run: |
-          atlas-package -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+          atlas-package -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2.1.3
         with:
