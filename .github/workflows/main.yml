@@ -12,8 +12,9 @@ jobs:
       - name: Install Atlassian SDK
         uses: rodrigo-nogues/github-action-install-atlassian-sdk@v1
       - name: Package the App
-        run: |
-          atlas-package -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        run: atlas-package -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+      - name: Get Maven Version Number
+        run: echo $(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2.1.3
         with:
