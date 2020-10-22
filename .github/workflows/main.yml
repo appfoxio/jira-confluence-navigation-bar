@@ -13,18 +13,22 @@ jobs:
         uses: rodrigo-nogues/github-action-install-atlassian-sdk@v1
       - name: Package the App
         run: atlas-package -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+      - uses: benjlevesque/short-sha@v1.1
+        id: short-sha
+        with:
+          length: 7
       - name: Get Maven Version Number
-        id: get-maven-ver
+        id: mavenver
         run: |
-          echo ::set-output name=ver::$(atlas-mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo ::set-output name=ver::$(atlas-mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.get-maven-ver.outputs.ver }}
-          release_name: Release ${{ steps.get-maven-ver.outputs.ver }}
+          tag_name: ${{ steps.mavenver.outputs.ver }}
+          release_name: Release ${{ steps.mavenver.outputs.ver }}
           body: Navigation Bar Cross-Product Plugin for Atlassian Server and Data Center.
           draft: false
           prerelease: false
@@ -35,6 +39,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./target/navbar-${{ steps.get-maven-ver.outputs.ver }}.jar
-          asset_name: lambda_invalidate_cloudfront_${{ steps.short-sha.outputs.sha }}.zip
-          asset_content_type: application/zip
+          asset_path: ./target/navbar-${{ steps.mavenver.outputs.ver }}.jar
+          asset_name: navbar-${{ steps.mavenver.outputs.ver }}.jar
+          asset_content_type: application/jar
