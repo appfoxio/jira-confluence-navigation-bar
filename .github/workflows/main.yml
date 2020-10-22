@@ -20,7 +20,7 @@ jobs:
       - name: Get Maven Version Number
         id: mavenver
         run: |
-          VERSION=$( atlas-mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout ) 
+          VERSION=$( atlas-mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate --offline -Dexpression=project.version -q -DforceStdout ) 
           echo "::set-output name=version::$VERSION"
       - name: Create Release
         id: create_release
