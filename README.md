@@ -1,5 +1,7 @@
 ## Navigation Bar App for Atlassian Apps
 
+[![Pipeline](https://github.com/appfoxio/atlassian-navigation-bar/actions/workflows/main.yml/badge.svg)](https://github.com/appfoxio/atlassian-navigation-bar/actions/workflows/main.yml)
+
 An open source full-width banner for Atlassian Apps, providing easy access to other Apps and Websites.
 
 Supports:
